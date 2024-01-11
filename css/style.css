@@ -211,3 +211,29 @@ body{
     transform: translate3d(0,0,0);
   }
 }
+.js-accordion dt::after{
+  content: '⇩';
+  margin-left: 10px;
+}
+.js-accordion dt.ativo::after{
+  content: '⇧';
+  margin-left: 10px;
+}
+.js-accordion dd{
+  display: none;
+}
+.js-accordion dd.ativo{
+  display: block;
+  animation: accordionScroll .3s forwards;
+}
+
+@keyframes accordionScroll{
+  from{
+    opacity: 0;
+    max-height: 0;
+  }
+  to{
+    opacity: 1;
+    max-height: 200px;
+  }
+}

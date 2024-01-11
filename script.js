@@ -18,3 +18,12 @@ imgs.forEach((img, index)=>{
 }
 }
 initTab()
+
+const dts = document.querySelectorAll('.js-accordion dt');
+
+dts.forEach((dt, index)=>{
+  dt.addEventListener('click', ()=>{
+     dt.classList.toggle('ativo');
+     dt.nextElementSibling.classList.toggle('ativo');
+  })
+})
