@@ -1,29 +1,51 @@
-function initTab(){
-  const imgs = document.querySelectorAll('.js-tabimg li');
-const sections = document.querySelectorAll('.js-tabcontent section');
-if(sections.length && imgs.length){
-  sections[0].classList.add('ativo'); // ativando a primeira section para vizualização
-function ativaTab(index){
-  sections.forEach((section)=>{
-    section.classList.remove('ativo');
-  })
-    sections[index].classList.add('ativo');
-}
+function initTab() {
+  const imgs = document.querySelectorAll(".js-tabimg li");
+  const sections = document.querySelectorAll(".js-tabcontent section");
+  if (sections.length && imgs.length) {
+    sections[0].classList.add("ativo"); // ativando a primeira section para vizualização
+    function ativaTab(index) {
+      sections.forEach((section) => {
+        section.classList.remove("ativo");
+      });
+      sections[index].classList.add("ativo");
+    }
 
-imgs.forEach((img, index)=>{
-  img.addEventListener('click', ()=>{
-      ativaTab(index)
-  })
-})
+    imgs.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        ativaTab(index);
+      });
+    });
+  }
+}
+initTab();
+
+function initAccordion() {
+  const dts = document.querySelectorAll(".js-accordion dt");
+
+  dts.forEach((dt, index) => {
+    dt.addEventListener("click", () => {
+      dt.classList.toggle("ativo");
+      dt.nextElementSibling.classList.toggle("ativo");
+    });
+  });
+}
+initAccordion();
+
+function initScrollView(){
+const sections = document.querySelectorAll(".js-section");
+if(sections){
+  window.addEventListener("scroll", showScroll);
+
+function showScroll() {
+  sections.forEach((element) => {
+    if (element.getBoundingClientRect().top < 0+200) {
+      element.classList.add("ativo");
+    }else{
+      element.classList.remove("ativo");
+    }
+  });
 }
 }
-initTab()
+}
+initScrollView()
 
-const dts = document.querySelectorAll('.js-accordion dt');
-
-dts.forEach((dt, index)=>{
-  dt.addEventListener('click', ()=>{
-     dt.classList.toggle('ativo');
-     dt.nextElementSibling.classList.toggle('ativo');
-  })
-})
