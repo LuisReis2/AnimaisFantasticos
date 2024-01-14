@@ -6,6 +6,10 @@ img{
   display: block;
   max-width: 100%;
 }
+.menu a{
+  text-decoration: none;
+  color: #222;
+}
 ul{
   list-style: none;
 }
@@ -40,6 +44,7 @@ body{
   font-size: 0.875rem;
   letter-spacing: .1em;
 }
+
 .grid-section{
   grid-column: 2/4;
   width: 100%;
