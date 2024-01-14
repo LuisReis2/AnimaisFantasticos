@@ -1,13 +1,14 @@
 function initTab() {
-  const imgs = document.querySelectorAll(".js-tabimg li");
-  const sections = document.querySelectorAll(".js-tabcontent section");
+  const imgs = document.querySelectorAll('[data-tab="menu"] li');
+  const sections = document.querySelectorAll('[data-tab="content"] section');
   if (sections.length && imgs.length) {
-    sections[0].classList.add("ativo"); // ativando a primeira section para vizualização
+    sections[0].classList.add("ativo", sections[0].dataset.anime); // ativando a primeira section para vizualização
     function ativaTab(index) {
       sections.forEach((section) => {
-        section.classList.remove("ativo");
+        section.classList.remove("ativo", section.dataset.anime);
       });
-      sections[index].classList.add("ativo");
+      sections[index].classList.add("ativo", sections[index].dataset.anime);
+  
     }
 
     imgs.forEach((img, index) => {
@@ -20,7 +21,7 @@ function initTab() {
 initTab();
 
 function initAccordion() {
-  const dts = document.querySelectorAll(".js-accordion dt");
+  const dts = document.querySelectorAll('[data-tab="accordion"] dt');
 
   dts.forEach((dt, index) => {
     dt.addEventListener("click", () => {
@@ -32,7 +33,7 @@ function initAccordion() {
 initAccordion();
 
 function initScrollView(){
-const sections = document.querySelectorAll(".js-section");
+const sections = document.querySelectorAll('[data-tab="scroll"]');
 if(sections){
   window.addEventListener("scroll", showScroll);
 
@@ -51,7 +52,7 @@ initScrollView()
 
 
 function initScrollTo(){
-  const linksInternos = document.querySelectorAll('[href^="#"]');
+  const linksInternos = document.querySelectorAll('[data-tab="menunav"] [href^="#"]');
   if(linksInternos){
     linksInternos.forEach((link)=>{
       link.addEventListener('click', (event)=>{
