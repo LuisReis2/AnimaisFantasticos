@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <div class="grid-container">
   <nav class="menu" data-tab="menunav">
     <ul>
       <li><a href="#animais">Animais</a></li>
@@ -93,7 +94,7 @@
   </section>
   <section class="grid-section contato" data-tab="scroll" id="contato">
     <h1 class="titulo">Contato</h1>
-    <div class="mapa">
+    <div class="mapa" data-tooltip aria-label="Próximo ao estacionamento">
       <img src="img/mapa.png">
     </div>
     <ul class="dados">
@@ -106,7 +107,8 @@
   <footer class="copy">
     <p>Powered by: Luis</p>
   </footer>
-  <script src="script.js"></script>
+  </div>
+  <script type="module" src="js/script.js"></script>
 </body>
 
 </html>
